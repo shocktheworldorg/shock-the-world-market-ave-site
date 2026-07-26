@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Ave Community Impact Campus — SHOCK THE WORLD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF;--paper:#F4F8FE;--mist:#E7EEF8;
+    --navy-900:#0A1730;--navy-800:#10254C;--ink:#1F2C49;--steel:#56627A;
+    --blue-600:#0B49C0;--blue-500:#1F6FEB;--blue-400:#3E8BFF;--brass:#C9A24B;
+    --display:'Space Grotesk',sans-serif;--body:'Inter',sans-serif;--mono:'Space Mono',monospace;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-500);display:inline-flex;align-items:center;gap:9px}
+  .tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--blue-500);box-shadow:0 0 0 3px rgba(31,111,235,.16)}
+  .tag.brass{color:var(--brass)}
+  .tag.brass::before{background:var(--brass);box-shadow:0 0 0 3px rgba(201,162,75,.18)}
+  .cap{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;color:#8696B4;margin-top:10px}
+
+  .btn{display:inline-block;font-family:var(--display);font-weight:600;font-size:.96rem;padding:14px 28px;border-radius:9px;cursor:pointer;border:1.5px solid transparent;transition:transform .15s,box-shadow .15s,background .15s,color .15s}
+  .btn-primary{background:var(--blue-500);color:#fff;box-shadow:0 8px 22px rgba(31,111,235,.26)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(31,111,235,.36);background:var(--blue-600)}
+  .btn-outline{background:transparent;color:var(--navy-800);border-color:var(--mist)}
+  .btn-outline:hover{border-color:var(--blue-400);color:var(--blue-600);transform:translateY(-2px)}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--mist)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand img{height:40px;width:40px;border-radius:50%;object-fit:cover}
+  .brand .wordmark{font-family:var(--display);font-weight:700;font-size:1.02rem;letter-spacing:.06em;color:var(--navy-900)}
+  .brand .wordmark span{color:var(--blue-500)}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{color:var(--ink);font-size:.92rem;font-weight:500;transition:color .15s}
+  .nav-links a:hover{color:var(--blue-600)}
+  .nav-links .btn{padding:10px 20px;font-size:.88rem}
+  .menu-toggle{display:none;background:none;border:0;color:var(--navy-900);font-size:1.6rem;cursor:pointer}
+
+  .hero{position:relative;overflow:hidden;padding:80px 0 70px;background:radial-gradient(circle at 86% 20%,rgba(62,139,255,.08),transparent 46%),linear-gradient(180deg,#FFFFFF 0%,#F4F8FE 100%)}
+  .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
+  .hero h1{font-family:var(--display);font-weight:700;font-size:clamp(2.4rem,5vw,3.9rem);line-height:1.03;letter-spacing:-.018em;color:var(--navy-900);margin:18px 0 18px}
+  .hero h1 em{font-style:normal;color:var(--blue-500)}
+  .hero p.lead{font-size:1.14rem;color:var(--steel);max-width:40ch;margin-bottom:28px}
+  .hero-cta{display:flex;gap:13px;flex-wrap:wrap}
+  .hero-figure{border-radius:18px;overflow:hidden;box-shadow:0 24px 60px rgba(10,23,48,.16);border:1px solid var(--mist)}
+  .hero-figure img{width:100%;height:auto}
+  .parcels{margin-top:42px;display:flex;flex-wrap:wrap;gap:10px}
+  .parcel-chip{font-family:var(--mono);font-size:.78rem;border:1px solid var(--mist);background:#fff;border-radius:999px;padding:9px 16px;color:var(--ink)}
+  .parcel-chip b{color:var(--blue-600)}
+
+  section.band{padding:84px 0}
+  .band.paper{background:var(--paper)}
+  .sec-head{max-width:64ch;margin-bottom:42px}
+  .sec-head h2{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,3.4vw,2.7rem);line-height:1.1;letter-spacing:-.012em;color:var(--navy-900);margin:14px 0 14px}
+  .sec-head p{font-size:1.1rem;color:var(--steel)}
+
+  /* site aerial */
+  .site-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:44px;align-items:center}
+  .site-figure{border-radius:16px;overflow:hidden;border:1px solid var(--mist);box-shadow:0 16px 40px rgba(10,23,48,.10)}
+  .site-body h2{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,3vw,2.3rem);color:var(--navy-900);margin:14px 0 14px;line-height:1.12}
+  .site-body p{color:var(--steel);margin-bottom:12px;font-size:1.04rem}
+  .site-facts{list-style:none;margin-top:14px}
+  .site-facts li{padding:8px 0 8px 24px;position:relative;color:var(--ink);font-weight:500}
+  .site-facts li::before{content:"";position:absolute;left:0;top:15px;width:8px;height:8px;border-radius:2px;background:var(--blue-500)}
+
+  .vision-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .vision-quote{font-family:var(--display);font-weight:600;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.3;letter-spacing:-.01em;color:var(--navy-800);max-width:26ch}
+  .vision-quote em{font-style:normal;color:var(--blue-500)}
+  .vision-body p{margin-bottom:16px;color:var(--steel);font-size:1.05rem}
+
+  /* adaptive reuse two-photo */
+  .reuse-grid{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center}
+  .reuse-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .reuse-photos figure{border-radius:13px;overflow:hidden;border:1px solid var(--mist)}
+  .reuse-photos img{width:100%;height:230px;object-fit:cover}
+  .reuse-body h2{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,3vw,2.4rem);color:var(--navy-900);margin:14px 0 14px;line-height:1.12}
+  .reuse-body p{color:var(--steel);margin-bottom:14px;font-size:1.05rem}
+
+  .scope-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .scope-card{background:#fff;border:1px solid var(--mist);border-radius:14px;padding:28px 24px;transition:transform .18s,box-shadow .18s,border-color .18s}
+  .scope-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(10,23,48,.08);border-color:var(--blue-400)}
+  .scope-num{font-family:var(--mono);font-size:.78rem;color:var(--blue-500);letter-spacing:.1em}
+  .scope-card h3{font-family:var(--display);font-weight:600;font-size:1.2rem;color:var(--navy-900);margin:12px 0 9px}
+  .scope-card p{color:var(--steel);font-size:.96rem}
+
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:40px}
+  .feature:last-child{margin-bottom:0}
+  .feature.flip .feat-photo{order:2}
+  .feat-photo{border-radius:16px;overflow:hidden;border:1px solid var(--mist);box-shadow:0 16px 38px rgba(10,23,48,.10)}
+  .feat-photo img{width:100%;height:360px;object-fit:cover;object-position:center 32%}
+  .feature-body h3{font-family:var(--display);font-weight:700;font-size:clamp(1.55rem,2.8vw,2.05rem);color:var(--navy-900);margin:14px 0 14px;line-height:1.14}
+  .feature-body p{color:var(--steel);font-size:1.05rem;margin-bottom:12px}
+  .feature-list{list-style:none;margin-top:16px}
+  .feature-list li{padding:9px 0 9px 26px;position:relative;color:var(--ink);font-weight:500}
+  .feature-list li::before{content:"";position:absolute;left:0;top:16px;width:9px;height:9px;border-radius:2px;background:var(--blue-500)}
+
+  /* recognition */
+  .rec-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
+  .rec-figure{border-radius:16px;overflow:hidden;border:1px solid var(--mist);box-shadow:0 16px 40px rgba(10,23,48,.12)}
+  .rec-body h2{font-family:var(--display);font-weight:700;font-size:clamp(1.8rem,3.2vw,2.5rem);color:var(--navy-900);margin:14px 0 16px;line-height:1.1}
+  .win{border:1px solid var(--mist);border-left:4px solid var(--blue-500);border-radius:10px;background:#fff;padding:18px 20px;margin-bottom:14px}
+  .win .pill{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;color:var(--blue-600)}
+  .win h3{font-family:var(--display);font-weight:600;font-size:1.2rem;color:var(--navy-900);margin:6px 0 4px}
+  .win p{color:var(--steel);font-size:.96rem}
+
+  /* classes */
+  .class-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+  .class-cards{display:flex;flex-direction:column;gap:16px}
+  .class-card{border:1px solid var(--mist);border-radius:14px;background:#fff;padding:24px 24px;display:flex;gap:18px;align-items:flex-start}
+  .class-card.next{border-color:var(--blue-500);box-shadow:0 12px 30px rgba(31,111,235,.12)}
+  .class-date{font-family:var(--display);font-weight:700;color:var(--navy-900);text-align:center;line-height:1;min-width:64px}
+  .class-date .mo{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--blue-600);margin-bottom:4px}
+  .class-date .day{font-size:2rem}
+  .class-info h3{font-family:var(--display);font-weight:600;font-size:1.15rem;color:var(--navy-900);margin-bottom:4px}
+  .class-info p{color:var(--steel);font-size:.95rem}
+  .class-info .meta{font-family:var(--mono);font-size:.72rem;color:#8696B4;margin-top:8px}
+  .class-tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;color:#fff;background:var(--blue-500);border-radius:999px;padding:3px 9px;margin-left:8px}
+  .flyer-figure{border-radius:14px;overflow:hidden;border:1px solid var(--mist);box-shadow:0 16px 40px rgba(10,23,48,.12)}
+
+  .tier-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .tier{background:#fff;border:1px solid var(--mist);border-radius:16px;padding:28px 22px;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s,border-color .18s}
+  .tier:hover{transform:translateY(-5px);box-shadow:0 20px 44px rgba(10,23,48,.10);border-color:var(--blue-400)}
+  .tier.featured{border-color:var(--blue-500);box-shadow:0 14px 36px rgba(31,111,235,.14)}
+  .tier .ribbon{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;color:var(--blue-600);margin-bottom:10px}
+  .tier-amt{font-family:var(--display);font-weight:700;font-size:2.1rem;color:var(--navy-900)}
+  .tier-impact{margin:12px 0 20px;color:var(--steel);font-size:.96rem;flex:1}
+  .tier .btn{width:100%;text-align:center;padding:11px}
+
+  .partner{position:relative;background:#fff;border:1px solid var(--mist);border-radius:22px;padding:58px 52px;text-align:center;overflow:hidden;box-shadow:0 18px 48px rgba(10,23,48,.07)}
+  .partner::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--blue-500),var(--blue-400),var(--brass))}
+  .partner h2{font-family:var(--display);font-weight:700;font-size:clamp(2rem,3.6vw,2.7rem);color:var(--navy-900);margin:14px 0 16px;line-height:1.1}
+  .partner p{max-width:54ch;margin:0 auto 28px;color:var(--steel);font-size:1.12rem}
+  .partner .hero-cta{justify-content:center}
+
+  footer.site-foot{background:var(--paper);border-top:1px solid var(--mist);padding:50px 0 42px;text-align:center;color:var(--steel)}
+  footer.site-foot .brand{justify-content:center;margin-bottom:14px}
+  footer.site-foot .brand img{height:44px;width:44px}
+  footer.site-foot .brand .wordmark{font-size:1.2rem}
+  .foot-links{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin:16px 0 12px}
+  .foot-links a{font-size:.9rem;font-weight:500;color:var(--blue-600)}
+  .foot-links a:hover{text-decoration:underline}
+  .foot-meta{font-family:var(--mono);font-size:.78rem;color:var(--steel);margin-top:8px}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+  @media (max-width:880px){
+    .nav-links{position:absolute;top:74px;left:0;right:0;background:#fff;border-bottom:1px solid var(--mist);flex-direction:column;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height .3s}
+    .nav-links.open{max-height:460px;padding:8px 0 18px}
+    .nav-links a{padding:13px 28px;width:100%}
+    .menu-toggle{display:block}
+    .hero-grid,.site-grid,.vision-grid,.reuse-grid,.feature,.feature.flip .feat-photo,.rec-grid,.class-grid{grid-template-columns:1fr}
+    .feature.flip .feat-photo{order:0}
+    .scope-grid{grid-template-columns:1fr}
+    .tier-grid{grid-template-columns:1fr 1fr}
+    .partner{padding:44px 26px}
+    .feat-photo img{height:260px}
+  }
+  @media (max-width:520px){.tier-grid{grid-template-columns:1fr}.reuse-photos img{height:180px}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#"><img src="assets/logo.jpg" alt="Shock the World logo"><span class="wordmark">SHOCK THE <span>WORLD</span></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#site">The Site</a>
+      <a href="#scope">Build Scope</a>
+      <a href="#programs">Programs</a>
+      <a href="#classes">Classes</a>
+      <a href="#give">Give</a>
+      <a class="btn btn-primary" href="#partner">Partner With Us</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="tag">North Richmond · California</span>
+      <h1>The Market Ave <em>Community Impact Campus</em></h1>
+      <p class="lead">Training people for real careers, cleaning the air we breathe, and keeping the future in the hands of the community that built North Richmond.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#scope">See the Work</a>
+        <a class="btn btn-outline" href="#partner">Get Involved</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="hero-figure"><img src="assets/hero-render.jpg" alt="Rendering of the restored Market Ave campus with redwood fencing, native landscaping, and rooftop solar"></div>
+      <div class="cap">Design rendering — restored campus with redwood fencing, native landscaping, and rooftop solar</div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="parcels reveal">
+      <span class="parcel-chip"><b>308</b> Market Ave</span>
+      <span class="parcel-chip"><b>320</b> Market Ave</span>
+      <span class="parcel-chip"><b>322</b> Market Ave</span>
+      <span class="parcel-chip"><b>1748</b> Fred Jackson Way</span>
+      <span class="parcel-chip"><b>0.35</b> acres</span>
+    </div>
+  </div>
+</section>
+
+<!-- THE SITE -->
+<section class="band paper" id="site">
+  <div class="wrap site-grid">
+    <div class="reveal">
+      <div class="site-figure"><img src="assets/aerial.jpg" alt="Aerial map of the Market Ave campus parcels outlined in red"></div>
+      <div class="cap">Aerial — the campus footprint at Market Ave &amp; Fred Jackson Way</div>
+    </div>
+    <div class="site-body reveal">
+      <span class="tag">The Site</span>
+      <h2>One block. Four parcels. Shovel-ready.</h2>
+      <p>The campus sits on a corner the whole neighborhood passes every day — four adjacent parcels totaling about a third of an acre, already under site control and in active restoration.</p>
+      <ul class="site-facts">
+        <li>0.35 acres across four contiguous parcels</li>
+        <li>1940s shipyard-worker-era buildings</li>
+        <li>Active site work already underway</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="band" id="vision">
+  <div class="wrap vision-grid">
+    <div class="reveal">
+      <span class="tag">The Vision</span>
+      <p class="vision-quote">Restored worker-era property, <em>returned to the community that built it.</em></p>
+    </div>
+    <div class="vision-body reveal">
+      <p>For generations, North Richmond has carried the weight of heavy industry without sharing in its prosperity. The Market Ave Community Impact Campus changes that story — not by tearing down, but by restoring.</p>
+      <p>We are taking buildings that housed wartime shipyard workers and giving them a second life: a place where local residents train for real careers, where young people find a safe foundation, and where clean air and green space are treated as a right, not a luxury.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ADAPTIVE REUSE -->
+<section class="band paper" id="history">
+  <div class="wrap reuse-grid">
+    <div class="reveal">
+      <div class="reuse-photos">
+        <figure><img src="assets/interior.jpg" alt="Interior of the building stripped to its wood framing"></figure>
+        <figure><img src="assets/mural.jpg" alt="Existing building with the North Richmond Pride community mural"></figure>
+      </div>
+      <div class="cap">Left: the structure taken back to its bones · Right: the building today, carrying the North Richmond Pride mural</div>
+    </div>
+    <div class="reuse-body reveal">
+      <span class="tag brass">Adaptive Reuse</span>
+      <h2>We build on what's already standing.</h2>
+      <p>These are 1940s shipyard-worker structures — built fast, built to last, and still standing eighty years later. Rather than demolish that history, we're rehabilitating it: keeping the bones, upgrading the systems, and making every visible improvement count.</p>
+      <p>Adaptive reuse keeps embodied carbon in place, honors the workers who came before, and delivers a community asset faster and greener than ground-up construction ever could.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BUILD SCOPE -->
+<section class="band" id="scope">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">The Build Scope</span>
+      <h2>Six upgrades that turn a block into a campus.</h2>
+      <p>A coordinated rehabilitation plan — healthy buildings, clean energy, and usable green space.</p>
+    </div>
+    <div class="scope-grid">
+      <div class="scope-card reveal"><div class="scope-num">01</div><h3>Building Rehabilitation</h3><p>Structural repair, envelope, roofing, and finishes that bring the shipyard-era buildings up to a safe, modern standard.</p></div>
+      <div class="scope-card reveal"><div class="scope-num">02</div><h3>Electrical Modernization</h3><p>Full electrical upgrade with solar-and-battery readiness, preparing the campus for clean, resilient power.</p></div>
+      <div class="scope-card reveal"><div class="scope-num">03</div><h3>Plumbing &amp; Restrooms</h3><p>New plumbing and public restrooms sized for training cohorts, events, and daily community use.</p></div>
+      <div class="scope-card reveal"><div class="scope-num">04</div><h3>HVAC &amp; Indoor Air Quality</h3><p>Efficient heating, cooling, and filtration that protects health in a community burdened by industrial air pollution.</p></div>
+      <div class="scope-card reveal"><div class="scope-num">05</div><h3>All-Electric Appliances</h3><p>Clean, all-electric kitchen and building systems — no on-site combustion, lower emissions, lower bills.</p></div>
+      <div class="scope-card reveal"><div class="scope-num">06</div><h3>Green Space &amp; Native Planting</h3><p>Outdoor gathering space, native landscaping, and redwood fencing that make the campus a place people want to be.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="band paper" id="programs">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">What Happens Here</span>
+      <h2>Two engines of opportunity, under one roof.</h2>
+    </div>
+    <div class="feature reveal">
+      <div class="feat-photo"><img src="assets/workforce.jpg" alt="A full room of residents at a Shock the World workforce session"></div>
+      <div class="feature-body">
+        <h3>Workforce Development Center</h3>
+        <p>Hands-on training in the trades that are hiring right now — plumbing, HVAC, electrical, construction, and green-energy jobs — delivered locally, to local residents.</p>
+        <ul class="feature-list">
+          <li>High-skills classes taught by working professionals</li>
+          <li>Job development and direct placement support</li>
+          <li>A pipeline into the campus's own clean-energy buildout</li>
+        </ul>
+      </div>
+    </div>
+    <div class="feature flip reveal">
+      <div class="feat-photo"><img src="assets/community.jpg" alt="Community building in North Richmond carrying neighborhood murals"></div>
+      <div class="feature-body">
+        <h3>Adult &amp; Youth Safe Zone</h3>
+        <p>A welcoming space for ages 13–24 — built around safety, mentorship, and a real path forward. Life skills, leadership, and a creative hub where young people are seen and supported.</p>
+        <ul class="feature-list">
+          <li>After-school and weekend programming for ages 13–24</li>
+          <li>Mentorship, life skills, and leadership development</li>
+          <li>A youth creative hub and safe community gathering point</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOGNITION -->
+<section class="band" id="recognition">
+  <div class="wrap rec-grid">
+    <div class="reveal">
+      <div class="rec-figure"><img src="assets/voted.jpg" alt="Voted first place — North Richmond community vote graphic"></div>
+    </div>
+    <div class="rec-body reveal">
+      <span class="tag">Community Recognition</span>
+      <h2>Voted #1 by North Richmond — twice.</h2>
+      <p style="color:var(--steel);font-size:1.05rem;margin-bottom:20px">In the "Not For Us, Without Us!" community vote, residents put this work first in two separate categories.</p>
+      <div class="win"><span class="pill">★ 1ST PLACE</span><h3>Economic Development</h3><p>550 local jobs — network operations, construction, customer service, and supplier work.</p></div>
+      <div class="win"><span class="pill">★ 1ST PLACE</span><h3>Climate Resiliency &amp; Air Pollution</h3><p>200 community-level air-quality sensors across Richmond.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLASSES -->
+<section class="band paper" id="classes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">Workforce Classes</span>
+      <h2>Current training series.</h2>
+      <p>Free classes taught by industry professionals — food provided. In partnership with Richmond LAND.</p>
+    </div>
+    <div class="class-grid">
+      <div class="class-cards reveal">
+        <div class="class-card">
+          <div class="class-date"><span class="mo">JUN</span><span class="day">15</span></div>
+          <div class="class-info"><h3>Plumbing Basics</h3><p>Plumbing fundamentals, tools and trade, and what it takes to succeed in the industry.</p><div class="meta">1:30–2:30 PM · 1540 Fred Jackson Way, Richmond</div></div>
+        </div>
+        <div class="class-card next">
+          <div class="class-date"><span class="mo">JUN</span><span class="day">29</span></div>
+          <div class="class-info"><h3>HVAC Fundamentals<span class="class-tag">NEXT UP</span></h3><p>HVAC systems overview, essential tools and techniques, and career growth.</p><div class="meta">1:30–2:30 PM · 1540 Fred Jackson Way, Richmond</div></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="flyer-figure"><img src="assets/flyer.jpg" alt="Shock the World Workforce Development Program flyer — June 15 Plumbing Basics and June 29 HVAC Fundamentals"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE -->
+<section class="band" id="give">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">Invest in the Campus</span>
+      <h2>Every dollar lands on this block.</h2>
+      <p>Your gift goes directly into training local residents and restoring this site. Here's what each level makes possible.</p>
+    </div>
+    <div class="tier-grid">
+      <div class="tier reveal"><div class="tier-amt">$50</div><div class="tier-impact">A week of tools and materials for one trainee in the workforce program.</div><a class="btn btn-outline" href="#">Give $50</a></div>
+      <div class="tier reveal featured"><div class="ribbon">MOST POPULAR</div><div class="tier-amt">$150</div><div class="tier-impact">A full skills workshop session for a cohort of local youth and adults.</div><a class="btn btn-primary" href="#">Give $150</a></div>
+      <div class="tier reveal"><div class="tier-amt">$500</div><div class="tier-impact">Native plants and green-space materials for a section of the campus grounds.</div><a class="btn btn-outline" href="#">Give $500</a></div>
+      <div class="tier reveal"><div class="tier-amt">$1,000</div><div class="tier-impact">Sponsors a resident through a complete trades training track, start to placement.</div><a class="btn btn-outline" href="#">Give $1,000</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER -->
+<section class="band paper" id="partner">
+  <div class="wrap">
+    <div class="partner reveal">
+      <span class="tag">Partner With Us</span>
+      <h2>Build North Richmond's future with us.</h2>
+      <p>Funders, contractors, workforce partners, and neighbors — there's a role here for you. Let's connect about what we're building on Market Ave.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="mailto:dshawn@shocktheworld.org">Start a Conversation</a>
+        <a class="btn btn-outline" href="#give">Make a Gift</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="assets/logo.jpg" alt="Shock the World logo"><span class="wordmark">SHOCK THE <span>WORLD</span></span></a>
+    <div class="foot-links">
+      <a href="https://ccpulse.org/2026/04/20/coming-home-north-richmond-residents-buy-back-their-community/" target="_blank" rel="noopener">In the News: Coming Home (CC Pulse)</a>
+      <a href="https://urbantilth.org/activate/north-richmond-at-the-table/index-focus-area/" target="_blank" rel="noopener">Partner: Urban Tilth</a>
+    </div>
+    <div>North Richmond, California · A California 501(c)(3) nonprofit</div>
+    <div class="foot-meta">dshawn@shocktheworld.org · (650) 804-3382</div>
+  </div>
+</footer>
+
+<script>
+  var t=document.getElementById('menuToggle'),n=document.getElementById('navLinks');
+  t&&t.addEventListener('click',function(){n.classList.toggle('open')});
+  n&&n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open')})});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>
